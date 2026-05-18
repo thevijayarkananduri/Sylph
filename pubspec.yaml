@@ -16,3 +16,11 @@ dependencies:
 
 flutter:
   uses-material-design: true
+
+  assets:
+    - assets/fonts/
+
+  fonts:
+    - family: Boldonse
+      fonts:
+        - asset: assets/fonts/Boldonse-Regular.ttf
