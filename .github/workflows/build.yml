@@ -29,18 +29,22 @@ jobs:
           flutter create --project-name sylph temp_project
           cp -r temp_project/android .
           cp -r temp_project/ios .
-          cp -r temp_project/linux .
-          cp -r temp_project/macos .
-          cp -r temp_project/windows .
-          cp -r temp_project/web .
           cp temp_project/.metadata .
           cp temp_project/analysis_options.yaml .
           rm -rf temp_project
 
-      - name: Fix Kotlin version
+      - name: Fix Kotlin version in settings.gradle
         run: |
-          sed -i 's/ext.kotlin_version = .*/ext.kotlin_version = "1.9.22"/' android/build.gradle
-          sed -i 's/id "org.jetbrains.kotlin.android" version .*/id "org.jetbrains.kotlin.android" version "1.9.22"/' android/settings.gradle
+          cat android/settings.gradle
+          # Replace the Kotlin plugin version line
+          sed -i 's|id "org.jetbrains.kotlin.android" version "[^"]*"|id "org.jetbrains.kotlin.android" version "1.9.22"|g' android/settings.gradle
+          cat android/settings.gradle
+
+      - name: Fix Kotlin version in build.gradle (legacy)
+        run: |
+          if [ -f android/build.gradle ]; then
+            sed -i 's|ext.kotlin_version = "[^"]*"|ext.kotlin_version = "1.9.22"|g' android/build.gradle
+          fi
 
       - name: Get dependencies
         run: flutter pub get
