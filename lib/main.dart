@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:sylph/services/network_service.dart';
 
 void main() {
@@ -32,7 +33,7 @@ class SylphApp extends StatelessWidget {
         scaffoldBackgroundColor: const Color(0xFF0a0a0f),
         brightness: Brightness.dark,
         useMaterial3: true,
-        fontFamily: 'DMSans',
+        fontFamily: 'DM Sans',
         colorScheme: const ColorScheme.dark(
           primary: Color(0xFFc8f04e),
           secondary: Color(0xFF4ecbf0),
@@ -66,8 +67,7 @@ class AppColors {
 
 class AppFonts {
   static TextStyle display({double size = 24, Color? color}) {
-    return TextStyle(
-      fontFamily: 'Boldonse',
+    return GoogleFonts.boldonse(
       fontSize: size,
       fontWeight: FontWeight.w400,
       color: color ?? AppColors.text,
@@ -76,8 +76,7 @@ class AppFonts {
   }
 
   static TextStyle body({double size = 16, FontWeight weight = FontWeight.w400, Color? color}) {
-    return TextStyle(
-      fontFamily: 'DMSans',
+    return GoogleFonts.dmSans(
       fontSize: size,
       fontWeight: weight,
       color: color ?? AppColors.text,
@@ -85,8 +84,7 @@ class AppFonts {
   }
 
   static TextStyle boldonse({double size = 24, Color? color}) {
-    return TextStyle(
-      fontFamily: 'Boldonse',
+    return GoogleFonts.boldonse(
       fontSize: size,
       fontWeight: FontWeight.w400,
       color: color ?? AppColors.text,
@@ -95,8 +93,7 @@ class AppFonts {
   }
 
   static TextStyle label({double size = 10, Color? color}) {
-    return TextStyle(
-      fontFamily: 'DMSans',
+    return GoogleFonts.dmSans(
       fontSize: size,
       fontWeight: FontWeight.w500,
       color: color ?? AppColors.muted,
@@ -226,7 +223,7 @@ class HistoryItem {
   );
 }
 
-// ════════════════════════════════════════���══════════════════
+// ════════════════════════════════════════════════════════════
 //  MAIN PAGE STATE
 // ═══════════════════════════════════════════════════════════
 class WeatherHomePage extends StatefulWidget {
