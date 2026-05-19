@@ -67,7 +67,8 @@ class AppColors {
 
 class AppFonts {
   static TextStyle display({double size = 24, Color? color}) {
-    return GoogleFonts.boldonse(
+    return TextStyle(
+      fontFamily: 'Boldonse',
       fontSize: size,
       fontWeight: FontWeight.w400,
       color: color ?? AppColors.text,
@@ -84,7 +85,8 @@ class AppFonts {
   }
 
   static TextStyle boldonse({double size = 24, Color? color}) {
-    return GoogleFonts.boldonse(
+    return TextStyle(
+      fontFamily: 'Boldonse',
       fontSize: size,
       fontWeight: FontWeight.w400,
       color: color ?? AppColors.text,
